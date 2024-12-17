@@ -1,12 +1,35 @@
-{% extends %}
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Hello</title>
-</head>
-<body>
-    <h1 stlye>Hello, World forecer!</h1>
-</body>
-</html>
+{% extends "layout.jinja2" %}
 
-jblock
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Login</h3>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('auth.login') }}">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block mt-3">Login</button>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <a href="{{ url_for('auth.signup') }}">Don't have an account? Sign up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
