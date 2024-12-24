@@ -9,14 +9,17 @@
 <body>
     {% if session.get('username') %}
         {% include 'navbar.jinja2' %}
-        <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-            <div class="card" style="width: 500px;">
-                <div class="card-body">
-                    <h5 class="card-title">Welcome, {{ session.get('username') }}!</h5>
-                    <p class="card-text">You have successfully logged in.</p>
+        {% if request.path == '/' %}
+            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+                <div class="card" style="width: 500px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Welcome, {{ session.get('username') }}!</h5>
+                        <p class="card-text">You have successfully logged in.</p>
+                        <a href="/dashboard" class="btn btn-primary">Go to Dashboard</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
     {% endif %}
     <div class="container">
         <div class="col d-flex justify-content-center mt-5">
