@@ -21,3 +21,7 @@ def logout():
 @app.route('/dashboard')
 def dashboard():
     return render_template('dashboard.jinja2')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.jinja2')
